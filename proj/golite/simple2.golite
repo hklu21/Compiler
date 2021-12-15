@@ -1,0 +1,48 @@
+package main;
+
+import "fmt";
+
+func main() {
+	var a int;
+	a = 3 + 4 + 5;
+	var b *int;
+	b = &a;
+	*b = 3 * 5 + 3 / 5;
+	if (a == *b) {
+		fmt.Print(a);
+	} else {
+	    fmt.Println(a);
+	}
+}
+
+
+func main() {
+    var n1 *Node;
+    n1 = new(Node);
+    n1.next = new(Node);
+	n1.next.next = new(Node);
+    n1.next.next.next = nil;
+	n1 = n1.next.next.next;
+    return;
+}
+
+
+// Assume n1 stored at r0
+new r1, Node
+mov r0, r1
+new r2, Node
+strRef r2, r0, @next
+new r3, Node
+loadRef r4 r0 @next
+strRef  r3 r4 @next
+mov r5, #0
+loadRef r6 r0 @next
+loadRef r7 r6 @next
+strRef r5 r7 @next
+
+mov r8, r0
+loadRef r9 r8 @next
+loadRef r10 r9 @next
+loadRef r11 r10 @next
+
+mv r1, r10;

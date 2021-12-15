@@ -1,0 +1,43 @@
+MakePoint:
+               new r0, Point2D
+               mov r1,r0 
+               strRef r2, r1, @x[Point2D]
+               strRef r3, r1, @y[Point2D]
+               ret r1
+main:
+               mov r4,#128 
+               mov r6,#-1 
+               mul r5,r4,r6
+               mov r7,#64 
+               push {r5, r7} @MakePoint
+               bl MakePoint
+               mov r8,r0 @Return
+               pop {r5, r7} @MakePoint
+               mov r9,r8 
+               loadRef r10, r9, @x[Point2D]
+               mov r11,r10 
+               println r11 
+               loadRef r12, r9, @y[Point2D]
+               mov r11,r12 
+               println r11 
+               delete r9
+
+------
+Frame MakePoint
+Argument :(x,r2,16)
+Argument :(y,r3,24)
+Local Var:(temp,ilocReg:1,-8)
+Temp Var:(r0,-16)
+------
+Frame main
+Local Var:(temp,ilocReg:11,-8)
+Local Var:(p,ilocReg:9,-16)
+Temp Var:(r0,-24)
+Temp Var:(r4,-32)
+Temp Var:(r6,-40)
+Temp Var:(r5,-48)
+Temp Var:(r7,-56)
+Temp Var:(r8,-64)
+Temp Var:(r10,-72)
+Temp Var:(r12,-80)
+

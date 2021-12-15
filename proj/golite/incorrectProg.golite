@@ -1,0 +1,42 @@
+package main;
+
+import "fmt";
+
+type structure struct {
+  input bool;
+  index int;
+};
+
+type coordinate struct {
+	coord *structure;
+};
+
+type cartesian struct {
+	cart *coordinate;
+};
+
+var input bool;
+var index *structure;
+
+func main() {
+	var a int;
+	var b *cartesian;
+	var c int;
+	c = b.car.coord.index;
+	b.cart.coord.index = 3 + true + 5 || false;
+	c = returnInt(1);
+	a = 5;
+	fmt.Print(c);
+	return;
+}
+
+func returnInt(number1 int) int {
+	var a, i int;
+	i = 0;
+	a = 1;
+	if (1 < 5) {
+		fmt.Println(a);
+		return 0;
+	}
+	return 1;
+}

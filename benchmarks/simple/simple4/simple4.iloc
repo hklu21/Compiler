@@ -1,0 +1,101 @@
+AddPoint:
+                new r0, Point2D
+                mov r1,r0 
+                globalLdr r2,@p1
+                loadRef r3, r2, @x[Point2D]
+                globalLdr r4,@p2
+                loadRef r5, r4, @x[Point2D]
+                add r6,r3,r5
+                strRef r6, r1, @x[Point2D]
+                globalLdr r7,@p1
+                loadRef r8, r7, @y[Point2D]
+                globalLdr r9,@p2
+                loadRef r10, r9, @y[Point2D]
+                add r11,r8,r10
+                strRef r11, r1, @y[Point2D]
+                ret r1
+MakePoint:
+                new r12, Point2D
+                mov r13,r12 
+                strRef r14, r13, @x[Point2D]
+                strRef r15, r13, @y[Point2D]
+                ret r13
+main:
+                mov r16,#3 
+                mov r17,#4 
+                push {r16, r17} @MakePoint
+                bl MakePoint
+                mov r18,r0 @Return
+                pop {r16, r17} @MakePoint
+                globalStr r18,@p1
+                mov r19,#5 
+                mov r20,#6 
+                push {r19, r20} @MakePoint
+                bl MakePoint
+                mov r21,r0 @Return
+                pop {r19, r20} @MakePoint
+                globalStr r21,@p2
+                globalLdr r22,@p1
+                globalLdr r23,@p2
+                push {r22, r23} @AddPoint
+                bl AddPoint
+                mov r24,r0 @Return
+                pop {r22, r23} @AddPoint
+                mov r25,r24 
+                loadRef r26, r25, @x[Point2D]
+                mov r27,r26 
+                println r27 
+                loadRef r28, r25, @y[Point2D]
+                mov r27,r28 
+                println r27 
+                globalLdr r29,@p1
+                delete r29
+                globalLdr r30,@p2
+                delete r30
+                delete r25
+
+------
+Frame AddPoint
+Argument :(Variable=p3,UnusedArg,16)
+Argument :(Variable=p4,UnusedArg,24)
+Local Var:(Variable=temp,ilocReg:1,-8)
+Temp Var:(r0,-16)
+Temp Var:(r2,-24)
+Temp Var:(r3,-32)
+Temp Var:(r4,-40)
+Temp Var:(r5,-48)
+Temp Var:(r6,-56)
+Temp Var:(r7,-64)
+Temp Var:(r8,-72)
+Temp Var:(r9,-80)
+Temp Var:(r10,-88)
+Temp Var:(r11,-96)
+------
+Frame MakePoint
+8, Argument :(x,r14,16)
+8, Argument :(y,r15,24)
+Local Var:(temp,ilocReg:13,-8)
+Temp Var:(r0,-16)
+Temp Var:(r12,-24)
+------
+Frame main
+Local Var:(temp,ilocReg:27,-8)
+Local Var:(p3,ilocReg:25,-16)
+Temp Var:(r0,-24)
+Temp Var:(r16,-32)
+Temp Var:(r17,-40)
+Temp Var:(r18,-48)
+Temp Var:(r19,-56)
+Temp Var:(r20,-64)
+Temp Var:(r21,-72)
+Temp Var:(r22,-80)
+Temp Var:(r23,-88)
+Temp Var:(r24,-96)
+Temp Var:(r26,-104)
+Temp Var:(r28,-112)
+Temp Var:(r29,-120)
+Temp Var:(r30,-128)
+Reload Parameter:VE("p3",Point2D), Func=AddPoint
+Reload Parameter:VE("p4",Point2D), Func=AddPoint
+Reload Parameter:VE("x",int), Func=MakePoint
+Reload Parameter:VE("y",int), Func=MakePoint

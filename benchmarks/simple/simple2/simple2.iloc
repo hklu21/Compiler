@@ -1,0 +1,33 @@
+main:
+               new r0, Point2D
+               globalStr r0,@p1
+               mov r1,#3 
+               globalLdr r2,@p1
+               strRef r1, r2, @x[Point2D]
+               mov r3,#4 
+               globalLdr r4,@p1
+               strRef r3, r4, @y[Point2D]
+               globalLdr r5,@p1
+               loadRef r6, r5, @x[Point2D]
+               mov r7,r6 
+               println r7 
+               globalLdr r8,@p1
+               loadRef r9, r8, @y[Point2D]
+               mov r7,r9 
+               print r7 
+               globalLdr r10,@p1
+               delete r10
+
+------
+Frame main
+Local Var:(temp,ilocReg:7,-8)
+Temp Var:(r0,-16)
+Temp Var:(r1,-24)
+Temp Var:(r2,-32)
+Temp Var:(r3,-40)
+Temp Var:(r4,-48)
+Temp Var:(r5,-56)
+Temp Var:(r6,-64)
+Temp Var:(r8,-72)
+Temp Var:(r9,-80)
+Temp Var:(r10,-88)

@@ -1,0 +1,26 @@
+Add:
+               add r2,r0,r1
+               ret r2
+main:
+               mov r3,#129 
+               mov r4,r3 
+               read r5 @b
+               push {r4, r5} @Add
+               bl Add
+               mov r6,r0 @Return
+               pop {r4, r5} @Add
+               mov r7,r6 
+               println r7
+------
+Frame Add
+Argument :(a,ilocReg=r0, 16)
+Argument :(b,r1,24)
+Temp Var:(r2,-8)
+------
+Frame main
+Local Var:(a,ilocReg:4,-8)
+Local Var:(b,ilocReg:5,-16)
+Local Var:(c,ilocReg:7,-24)
+Temp Var:(r0,-32)
+Temp Var:(r3,-40)
+Temp Var:(r6,-48)
