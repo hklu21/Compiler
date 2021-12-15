@@ -4,17 +4,26 @@
 
 This is a compiler for a language called Golite (a "tiny Go"). Go [here](https://classes.cs.uchicago.edu/archive/2021/fall/51300-1/assignments/overview/index.html) to see its grammar and semantics.
 
-## Files
+## Files (in the folder proj/)
+
 
 token/: defined token type
+
 scanner/: implementation of the scanner
+
 paser/: implementation the paser
+
 sa/: implementation of the semantic analysis
+
 ir/: implementation of AST to ILOC
+
 codegen/: implementation of code generation
+
 ast/: structure definition and useful methods within ast
+
 symbolTable/: structure definition of symbol table for semantic analysis.
-golite/: the main function of the project (to run the each phase of the compiler).
+
+golite/golite.go: the main function of the project (to run the each phase of the compiler).
 
 ## How to run
 
@@ -34,6 +43,19 @@ f1, f2, f3 are flags you can use to expect some output on stdout.
 
 -iloc: print the iloc intermediate representation if no semanstic error
 
+## sample out put
+
+run the following command:
+
+```Shell
+go run golite.go -lex -ast -iloc thermopylae.golite
+```
+
+![plot](proj/golite/output/lex.png)
+![plot](proj/golite/output/ast.png)
+![plot](proj/golite/output/iloc.png)
+
+the output ARM assembly file is [thermopylae.s] which is ready to be compiled and excuted.
 
 ## DFA of Golite
 
@@ -49,3 +71,5 @@ Below is the DFA of Golite, where the green ones are final states and the blue o
 ## Renference
 
 [Mermaid Tutorials](https://mermaid-js.github.io/mermaid/#/Tutorials?id=live-editor-tutorials)
+
+[ARM assembly](http://www.cburch.com/books/arm/)
