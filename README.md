@@ -55,7 +55,7 @@ go run golite.go -lex -ast -iloc thermopylae.golite
 ![plot](proj/golite/output/ast.png)
 ![plot](proj/golite/output/iloc.png)
 
-the output ARM assembly file is [thermopylae.s] which is ready to be compiled and excuted.
+the output ARM assembly file is [thermopylae.s](https://github.com/hklu21/Compiler/blob/main/proj/golite/thermopylae.s) which is ready to be compiled and excuted.
 
 ## DFA of Golite
 
